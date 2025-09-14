@@ -1,0 +1,96 @@
+services:
+  mysql:
+    image: mariadb:10.11
+    container_name: vkdrive-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - vkdrive-network
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-uroot",
+          "-p${DB_PASSWORD}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: vkdrive-backend
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      SERVER_PORT: ${SERVER_PORT}
+      VITE_CLIENT_URL: ${VITE_CLIENT_URL}
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - vkdrive-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        - VITE_SERVER_URL=${VITE_SERVER_URL}
+        - VITE_CLIENT_PORT=${VITE_CLIENT_PORT}
+        - VITE_CLIENT_URL=${VITE_CLIENT_URL}
+    container_name: vkdrive-frontend
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      VITE_SERVER_URL: ${VITE_SERVER_URL}
+      VITE_CLIENT_PORT: ${VITE_CLIENT_PORT}
+      VITE_CLIENT_URL: ${VITE_CLIENT_URL}
+    ports:
+      - "${VITE_CLIENT_PORT}:80"
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - vkdrive-network
+    restart: unless-stopped
+
+  adminer:
+    image: adminer:4.8.1
+    container_name: vkdrive-adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql
+      ADMINER_DEFAULT_USERNAME: ${DB_USER}
+      ADMINER_DEFAULT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - vkdrive-network
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+
+networks:
+  vkdrive-network:
+    driver: bridge

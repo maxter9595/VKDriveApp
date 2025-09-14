@@ -1,0 +1,111 @@
+
+.user-management {
+  margin: 20px 0;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 100%;
+  border-radius: var(--border-radius-sm);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #5c7fd4;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.table-info span {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: unset;
+    align-items: center;
+    margin: 30px 0 -10px 0;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.status.active {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.status.inactive {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.role.admin {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.role.user {
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 15px;
+  font-size: 1.5rem;
+  background-color: rgba(23, 73, 194, 0.7);
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  display: inline-block;
+  border: none;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  display: flex;
+  text-align: center;
+}

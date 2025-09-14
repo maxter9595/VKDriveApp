@@ -1,0 +1,116 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.875rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  transition: var(--transition);
+  background: white;
+  color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group small {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.form-group small a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.form-group small a:hover {
+  text-decoration: underline;
+}
+
+.form-info {
+  background: #f8f9fa;
+  border-left: 4px solid #007bff;
+  padding: 15px;
+  margin: 0.05rem 0 1.9rem 0;
+  border-radius: 4px;
+  font-size: 1.25rem;
+}
+
+.form-info ol {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.form-info li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.required-field {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.password-requirements {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 10px;
+  font-style: italic;
+  line-height: 1.4;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.password-requirements p {
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.password-requirements ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.password-requirements li {
+  margin-bottom: 4px;
+}
+
+.token-form .form-group > label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.create-admin-form .form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.change-password-form .modal-body .password-requirements {
+  margin: -5px 0 20px 0;
+  padding: 15px 10px;
+}
+
+.change-password-form .modal-body {
+  margin-bottom: -27.5px;
+}

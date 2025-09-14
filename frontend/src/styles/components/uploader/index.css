@@ -1,0 +1,96 @@
+.upload-preview-grid,
+.files-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.image-preview-container,
+.file-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.image-preview-container:hover,
+.file-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview-container img,
+.file-preview img {
+  width: 100%;
+  object-fit: cover;
+  height: 200px;
+}
+
+.ui.action.input {
+  display: flex;
+}
+
+.image-preview-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.image-preview-container button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.image-preview-container button:hover {
+  background: var(--primary-light);
+}
+
+.file-info {
+  padding: 15px;
+}
+
+.file-info h4 {
+  margin-bottom: 10px;
+  color: var(--primary);
+  word-break: break-word;
+}
+
+.file-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.file-actions {
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+.file-actions .btn {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.file-actions .btn .fas {
+  margin-left: 5px;
+}
+
+.upload-success-message {
+  text-align: center;
+  padding: 20px;
+  border-radius: 4px;
+  color: #155724;
+}

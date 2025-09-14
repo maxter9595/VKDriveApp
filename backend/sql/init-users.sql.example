@@ -1,0 +1,25 @@
+INSERT IGNORE INTO users (email, password, first_name, last_name, role, is_active, created_at, updated_at)
+SELECT 
+    'admin@vkdrive.local',
+    '$2b$12$YOUR_HASHED_PASSWORD_HERE',
+    'System',
+    'Administrator',
+    'admin',
+    TRUE,
+    NOW(),
+    NOW()
+FROM DUAL
+WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = 'admin@vkdrive.local' LIMIT 1);
+
+INSERT IGNORE INTO users (email, password, first_name, last_name, role, is_active, created_at, updated_at)
+SELECT 
+    'test.user@vkdrive.local',
+    '$2b$12$YOUR_HASHED_TEST_PASSWORD_HERE',
+    'Test',
+    'User',
+    'user',
+    TRUE,
+    NOW(),
+    NOW()
+FROM DUAL
+WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = 'test.user@vkdrive.local' LIMIT 1);
