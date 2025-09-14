@@ -45,7 +45,7 @@ export default class Login extends React.Component {
     return (
       <div className="auth-container">
         <form onSubmit={this.handleSubmit} className="auth-form auth-form-login">
-          <h2>Вход в систему</h2>
+          <h2>Вход в приложение</h2>
           {this.state.error && <div className="error-message">{this.state.error}</div>}
           <input
             type="email"
