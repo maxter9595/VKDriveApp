@@ -176,7 +176,7 @@ export default class PreviewModal extends BaseModal {
       <div ref={this.domElement} className="modal uploaded-previewer-modal">
         <div className="modal-content">
           <div className="modal-header">
-            <h3 className="modal-title">Просмотр загруженных файлов</h3>
+            <h3 className="modal-title">Просмотр файлов</h3>
             <div className="modal-header-actions">
               <button className="modal-close" onClick={() => this.close()}>
                 <i className="fas fa-times"></i>

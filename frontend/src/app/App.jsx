@@ -101,6 +101,15 @@ export default function App() {
     fileUploaderModalRef.current?.showImages(images);
   };
 
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (user) {
+      navigate('/');
+    } else {
+      setShowLogin(true);
+    }
+  };
+
   if (loading) {
     return <div className="loading">Загрузка...</div>;
   }
@@ -109,7 +118,7 @@ export default function App() {
     return (
       <div className="app-container">
         <header className="app-header">
-          <a href="#" className="logo">
+          <a href="#" className="logo" onClick={handleLogoClick}>
             <div className="logo-icon">
               <i className="fas fa-cloud-upload-alt"></i>
             </div>
@@ -148,7 +157,7 @@ export default function App() {
           <AdminRoute user={user}>
             <div>
               <header className="app-header">
-                <a href="#" className="logo">
+                <a href="#" className="logo" onClick={handleLogoClick}>
                   <div className="logo-icon">
                     <i className="fas fa-cloud-upload-alt"></i>
                   </div>
@@ -173,7 +182,7 @@ export default function App() {
         <Route path="/*" element={
           <>
             <header className="app-header">
-              <a href="#" className="logo">
+              <a href="#" className="logo" onClick={handleLogoClick}>
                 <div className="logo-icon">
                   <i className="fas fa-cloud-upload-alt"></i>
                 </div>

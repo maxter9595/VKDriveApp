@@ -143,7 +143,7 @@ export default class ImageViewer extends React.Component {
                 className="btn btn-secondary show-uploaded-files"
                 onClick={this.handleShowUploaded}
               >
-                <i className="fas fa-eye"></i> Посмотреть загруженные файлы
+                <i className="fas fa-eye"></i> Посмотреть файлы
               </button>
               <button 
                 className={`btn btn-primary send ${!someSelected ? 'disabled' : ''}`}

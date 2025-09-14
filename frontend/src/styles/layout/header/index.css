@@ -19,10 +19,6 @@
   transition: var(--transition);
 }
 
-.logo:hover {
-  transform: translateY(-2px);
-}
-
 .logo-icon {
   font-size: 2.5rem;
   margin-right: 0.5rem;
