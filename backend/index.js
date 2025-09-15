@@ -27,7 +27,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'OK' });
+  res.json({ status: 'OK', message: 'Server is running' });
 });
 
 app.use((err, req, res) => {
