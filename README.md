@@ -1,6 +1,6 @@
 # 🖼️ VKDriveApp - резервное копирование изображений из VK в Яндекс.Диск
 
-<img src="./Demo/1-Intro/1.gif" width="100%">
+<img src="./demo/1-intro/1.gif" width="100%">
 
 ## 1. Ограничения при работе с проектом
 
@@ -45,7 +45,7 @@
 - ```users``` - таблица из БД, фиксирующая пользователей и админов
 - ```sessions``` - таблица, отвечающая за пользовательские сессии
 
-<img src="./demo/2-functionality/1-auth.gif" width="100%">
+<img src="./demo/2-functionality/1.gif" width="100%">
 
 ### 2.2. Работа с резеврным копированием изображений
 
@@ -55,7 +55,7 @@
 - Выбор фотографий для отправки в хранилище Яндекс.Диска. Фотографии сохраняются в папке ```VKDrive```
 - Просмотр текущих фотографий в папке ```VKDrive```
 
-<img src="./demo/2-functionality/2-backup.gif" width="100%">
+<img src="./demo/2-functionality/2.gif" width="100%">
 
 ### 2.3. Работа с панелью администратора
 
@@ -64,7 +64,7 @@
 - Фильтрация всех пользователей по конкретным критериям: ID, email, имя, фамилия, роль, статус
 - Вместе с админ-панелью администраторы могут пользоваться резервным копированием изображений
 
-<img src="./demo/2-functionality/3-admin-panel.gif" width="100%">
+<img src="./demo/2-functionality/3.gif" width="100%">
 
 ## 3. Инструкция по получению токенов ВК и Яндекс.Диска
 
@@ -75,26 +75,30 @@
 - Сайт [https://vkhost.github.io/](https://vkhost.github.io/) → Приложение ```VK Admin```. После выбора приложения соглашаемся со всеми разрешениями (кнопка ```Разрешить```)
 - При желании вместо ```VK Admin``` можно использовать собственное приложение для получения токена: [https://id.vk.com/about/business/go/docs/ru/vkid/latest/vk-id/connection/tokens/access-token](https://id.vk.com/about/business/go/docs/ru/vkid/latest/vk-id/connection/tokens/access-token)
 
-<img src="./Demo/3-Tokens/1-1.png" width="100%">
+<img src="./demo/3-tokens/1-1.png" width="100%">
 
-<img src="./Demo/3-Tokens/1-2.png" width="100%">
+<img src="./demo/3-tokens/1-2.png" width="100%">
 
 #### 3.1.2. Копируем токен пользователя ВК
 
 * Копируем часть адресной строки от ```access_token=``` до ```&expires_in```
+
+<img src="./demo/3-tokens/1-3.png" width="100%">
+
 * Созданный ключ - значение поля ```Токен VK```
 
-```
-# VK_USER_TOKEN - токен пользователя ВК
-vk1.a.kr...dQ
-```
+<img src="./demo/3-tokens/1-4.png" width="100%">
+
 
 ### 3.2. Получение токена пользователя Яндекс.Диск
 
-- Сайт [https://yandex.ru/dev/disk/poligon](https://yandex.ru/dev/disk/poligon) → Кнопка ```Получить OAuth-токен```
+* Сайт [https://yandex.ru/dev/disk/poligon](https://yandex.ru/dev/disk/poligon) → Кнопка ```Получить OAuth-токен```
+
+<img src="./demo/3-tokens/2-1.png" width="100%">
+
 * Созданный ключ - значение поля ```Токен Яндекс.Диска```
 
-<img src="./Demo/3-Tokens/2.png" width="100%">
+<img src="./demo/3-tokens/2-2.png" width="100%">
 
 ## 4. Инструкция по локальному запуску проекта
 
@@ -107,7 +111,7 @@ git clone https://github.com/maxter9595/VKDriveApp.git
 cd VKDriveApp
 ```
 
-<img src="./Demo/4-Local-Setup/1.gif" width="100%">
+<img src="./demo/4-local-setup/1.gif" width="100%">
 
 ### 4.2. Настройка переменных окружения и SQL-скрипта для создания первых пользователей
 
@@ -123,7 +127,7 @@ bash -c "cp .env_example .env"
 bash -c "cp backend/sql/init-users.sql.example backend/sql/init-users.sql"
 ```
 
-<img src="./Demo/4-Local-Setup/2.gif" width="100%">
+<img src="./demo/4-local-setup/2.gif" width="100%">
 
 ### 4.3. Задание паролей для первых пользователей
 
@@ -142,7 +146,7 @@ npm run update-passwords -- Admin123! TestUser123!
 Пароль: TestUser123!
 ```
 
-<img src="./Demo/4-Local-Setup/3.gif" width="100%">
+<img src="./demo/4-local-setup/3.gif" width="100%">
 
 ### 4.4. Тестирование и сборка
 
@@ -153,7 +157,7 @@ npm run test:unit
 npm run build
 ```
 
-<img src="./Demo/4-Local-Setup/4.gif" width="100%">
+<img src="./demo/4-local-setup/4.gif" width="100%">
 
 ### 4.5. Запуск Docker
 
@@ -167,7 +171,7 @@ docker compose up -d
 docker compose ps
 ```
 
-<img src="./Demo/4-Local-Setup/5.gif" width="100%">
+<img src="./demo/4-local-setup/5.gif" width="100%">
 
 ### 4.6. Открытие приложения
 
@@ -196,7 +200,7 @@ Password: mysql
 Database: vkdrive
 ```
 
-<img src="./Demo/4-Local-Setup/6.gif" width="100%">
+<img src="./demo/4-local-setup/6.gif" width="100%">
 
 ## 5. Инструкция по деплою проекта на сервере
 
@@ -383,7 +387,7 @@ type $env:USERPROFILE\.ssh\id_ed25519.pub
 
 ```bash
 # Копируем SSH-ключ
-ssh-ed25519 AAAA...Ed max.t95@bk.ru
+ssh-ed25519 AAAA...MZ max.t95@bk.ru
 ```
 
 <img src="./demo/6-ci-cd/1.png" width="100%">
@@ -404,7 +408,7 @@ ssh-keygen -y -f ~/.ssh/id_ed25519
 
 ```bash
 # SSH-ключ из сервера понадобится для удаленного подключения к GitHub
-ssh-ed25519 AAAA...Mu max.t95@bk.ru
+ssh-ed25519 AAAA...sk max.t95@bk.ru
 ```
 
 <img src="./demo/6-ci-cd/2.png" width="100%">
@@ -420,7 +424,7 @@ ssh-keygen -y -f ~/.ssh/id_ed25519 >> ~/.ssh/authorized_keys
 * Ввод SSH-ключа из локального ПК в список авторизированных ключей:
 
 ```bash
-echo "ssh-ed25519 AAAA...Ed max.t95@bk.ru" >> ~/.ssh/authorized_keys
+echo "ssh-ed25519 AAAA...MZ max.t95@bk.ru" >> ~/.ssh/authorized_keys
 ```
 
 * Просмотр списка авторизированных ключей:
@@ -431,8 +435,8 @@ cat ~/.ssh/authorized_keys
 
 ```bash
 # В результате должно быть два SSH-ключа в списке авторизованных ключей
-ssh-ed25519 AAAA...Mu max.t95@bk.ru
-ssh-ed25519 AAAA...Ed max.t95@bk.ru
+ssh-ed25519 AAAA...sk max.t95@bk.ru
+ssh-ed25519 AAAA...MZ max.t95@bk.ru
 ```
 
 <img src="./demo/6-ci-cd/3.png" width="100%">
@@ -477,7 +481,7 @@ cat ~/.ssh/id_ed25519.pub
 
 ```bash
 # Копируем все, что будет выведено
-ssh-ed25519 AAAA...Mu max.t95@bk.ru
+ssh-ed25519 AAAA...sk max.t95@bk.ru
 ```
 
 * Привязка публичного ключа к GitHub:
@@ -488,7 +492,7 @@ ssh-ed25519 AAAA...Mu max.t95@bk.ru
   
      * Имя ключа: ```VM-server```
 
-     * В поле ```Key``` добавляем содержимое SSH-ключа. Пример - ```ssh-ed25519 AAAA...Mu max.t95@bk.ru```
+     * В поле ```Key``` добавляем содержимое SSH-ключа. Пример - ```ssh-ed25519 AAAA...sk max.t95@bk.ru```
 
   * После добавления параметров SSH-ключа нажимаем ```Add SSH key```
 
@@ -545,7 +549,7 @@ cat ~/.ssh/id_ed25519
 ```bash
 # Копируем все вместе с комментариями BEGIN и END
 -----BEGIN OPENSSH PRIVATE KEY----- 
-b3...= 
+b3...nU= 
 -----END OPENSSH PRIVATE KEY-----
 ```
 
